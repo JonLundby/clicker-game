@@ -15,15 +15,23 @@
             <!-- herunder i game_elements putter du dine spil elementer ind samt evt. mellemgrunde -->
             <div id="game_elements">
                 <div id="plank_container">
-                    <img src="C:\Users\Jon\Desktop\Clicker spil dokumentation\plank_edit02.png" alt="">
+                    <img id="plank_sprite" src="images/plank_edit02.png" alt="">
+                </div>
+                <div id="bug_container">
+                    <img src="images/Dor_beetle_watercolour.png" alt="">
                 </div>
             </div>
-            <div id="game_forground"></div>
-            <div id="game_ui"></div>
+            <div id="game_forground">
+                <img id="trash_pile" src="images/trash-pile-1024x451.png" alt="">
+            </div>
+            <div id="game_ui">
+                <div id="timer"></div>
+                <div id="score"></div>
+            </div>
         </div>
-        <div id="start"></div>
-        <div id="game_over"></div>
-        <div id="level_complete"></div>
+        <div id="start" hidden></div>
+        <div id="game_over" hidden></div>
+        <div id="level_complete" hidden></div>
     </div>
 </body>
 <script src="app.js"></script>

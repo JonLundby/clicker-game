@@ -1,4 +1,76 @@
+body {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+}
+
 #screen {
     aspect-ratio: 16/9;
     width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+}
+
+#game {
+    grid-area: 1/1;
+    background-color: aqua;
+    overflow: hidden;
+
+    display: grid;
+    
+}
+
+#game_background {
+    grid-area: 1/1;
+}
+
+#game_elements {
+    grid-area: 1/1;
+}
+
+/* GAME ELEMENTS */
+
+#plank_container {
+    position: absolute;
+    width: 10%;
+}
+
+#bug_container {
+    position: absolute;
+    width: 10%;
+}
+
+/* FOREGROUNDS */
+#game_foreground {
+    grid-area: 1/1;
+    overflow: hidden;
+}
+
+#trash_pile {
+    position: absolute;
+    top: 70%;
+    left: 90%;
+}
+
+/* GAME UI */
+#game_ui {
+    grid-area: 1/1;
+    position: relative;
+}
+
+/* UI ELEMENTS */
+
+#start {
+    width: 10%;
+}
+
+#game_over {
+    width: 10%;
+}
+
+#level_complete {
+    width: 10%;
 }
