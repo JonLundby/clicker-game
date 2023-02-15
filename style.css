@@ -9,6 +9,7 @@ img {
 #screen {
     aspect-ratio: 16/9;
     width: 100%;
+    border: 4px solid black;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: 100%;
@@ -16,15 +17,13 @@ img {
 
 #game {
     grid-area: 1/1;
-    background-color: aqua;
     overflow: hidden;
-
     display: grid;
-    
 }
 
 #game_background {
     grid-area: 1/1;
+    opacity: 50%;
 }
 
 #game_elements {
@@ -35,24 +34,35 @@ img {
 
 #plank_container {
     position: absolute;
-    width: 10%;
+    z-index: 1;
+    width: 15%;
+    top: 38%;
+    left: 64%;
+    rotate: -73deg;
 }
 
 #bug_container {
     position: absolute;
+    z-index: 1;
     width: 10%;
+    top: 70%;
+    left: 55%;
+    rotate: -34deg;
 }
 
 /* FOREGROUNDS */
 #game_foreground {
     grid-area: 1/1;
     overflow: hidden;
+    z-index: 2;
 }
 
 #trash_pile {
     position: absolute;
-    top: 70%;
-    left: 90%;
+    z-index: 2;
+    width: 88%;
+    top: 44%;
+    left: 23%;
 }
 
 /* GAME UI */
