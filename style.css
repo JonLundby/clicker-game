@@ -39,29 +39,52 @@ img {
     position: absolute;
     z-index: 1;
     width: 13%;
-    top: 38%;
+    top: 85%;
     left: 64%;
-    rotate: -73deg;
 }
 
 #bug_container {
     position: absolute;
     z-index: 1;
-    width: 8%;
-    top: 50%;
+    width: 6%;
+    top: 90%;
     left: 55%;
-    rotate: -34deg;
 }
 
 /* ANIMATIONS */
 
+.trash_items_movement {
+    animation-name: toss_up_fall_down;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
+@keyframes toss_up_fall_down {
+    0% {transform: translate(0,0%);}
+    50% {transform: translate(0,-600%);}
+    100% {transform: translatex(0,0%);}
+}
+
+.click_trash_item {
+    animation-name: fade_to_0;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade_to_0 {
+    0% {opacity: 1;}
+    100% {opacity: 0.2;}
+}
+
+/* TO DO: MAKE PAUSE CONTAINER */
 
 /* FOREGROUNDS */
 #game_foreground {
-    background-image: url(images/Trash_Pile_Edit.png);
+    background-image: url(images/trash_pile_transparent_16_9.png);
     grid-area: 1/1;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: 2;
 
 }
