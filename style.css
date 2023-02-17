@@ -1,118 +1,127 @@
 body {
-    margin: 0;
+  margin: 0;
 }
 
 img {
-    width: 100%;
+  width: 100%;
 }
 
 #screen {
-    aspect-ratio: 16/9;
-    width: 100%;
-    border: 2px solid black;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 100%;
+  aspect-ratio: 16/9;
+  width: 100%;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
 }
 
 #game {
-    grid-area: 1/1;
-    overflow: hidden;
-    display: grid;
+  grid-area: 1/1;
+  overflow: hidden;
+  display: grid;
 }
 
 #game_background {
-    background-image: url(images/A_dump_in_Boa_Vista\,_Cape_Verde\,_December_2010.jpg);
-    background-size: cover;
-    grid-area: 1/1;
-    opacity: 80%;
-    z-index: 0;
-    /* SKÆR BAGGRUNDS BILLEDE TIL 16:9 */
+  background-image: url(images/A_dump_in_Boa_Vista\_Cape_Verde\_December_2010.jpg);
+  background-size: cover;
+  grid-area: 1/1;
+  opacity: 80%;
+  z-index: 0;
 }
 
 #game_elements {
-    grid-area: 1/1;
+  grid-area: 1/1;
+  position: relative;
 }
 
 /* GAME ELEMENTS */
 
 #plank_container {
-    position: absolute;
-    z-index: 1;
-    width: 13%;
-    top: 85%;
-    left: 64%;
+  position: absolute;
+  z-index: 1;
+  width: 13%;
+  top: 85%;
+  left: 64%;
 }
 
 #bug_container {
-    position: absolute;
-    z-index: 1;
-    width: 6%;
-    top: 90%;
-    left: 55%;
+  position: absolute;
+  z-index: 1;
+  width: 6%;
+  top: 90%;
+  left: 55%;
 }
 
 /* ANIMATIONS */
 
 .trash_items_movement {
-    animation-name: toss_up_fall_down;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-name: toss_up_fall_down;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.1, 0.46, 0.45, 0.94);
 }
 
 @keyframes toss_up_fall_down {
-    0% {transform: translate(0,0%);}
-    50% {transform: translate(0,-600%);}
-    100% {transform: translatex(0,0%);}
+  0% {
+    transform: translate(0, 0%);
+  }
+  50% {
+    transform: translate(0, -600%);
+  }
+  100% {
+    transform: translatex(0, 0%);
+  }
 }
 
 .click_trash_item {
-    animation-name: fade_to_0;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation-name: fade_to_0;
+  animation-duration: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes fade_to_0 {
-    0% {opacity: 1;}
-    100% {opacity: 2;}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 2;
+  }
 }
 
 /* TO DO: MAKE PAUSE CONTAINER */
 
 /* FOREGROUNDS */
 #game_foreground {
-    /* background-image: url(images/trash_pile_transparent_16_9.png); */
-    grid-area: 1/1;
-    position: relative;
-    z-index: 2;
+  /* background-image: url(images/trash_pile_transparent_16_9.png); */
+  grid-area: 1/1;
+  position: relative;
+  z-index: 2;
 }
 
 #trash_pile {
-    position: absolute;
-    z-index: 2;
-    width: 75%;
-    top: 58%;
-    left: 25%;
+  position: absolute;
+  width: 75%;
+  top: 58%;
+  left: 25%;
 }
 
 /* GAME UI */
 #game_ui {
-    grid-area: 1/1;
-    position: relative;
+  grid-area: 1/1;
+  position: relative;
 }
 
 /* UI ELEMENTS */
 
 #start {
-    width: 10%;
+  width: 10%;
 }
 
 #game_over {
-    width: 10%;
+  width: 10%;
 }
 
 #level_complete {
-    width: 10%;
+  width: 10%;
 }
