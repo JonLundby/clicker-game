@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Clicker Game</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="screen">
-        <div id="game">
-            <div id="game_background"></div>
-            <!-- <img src="images/A_dump_in_Boa_Vista,_Cape_Verde,_December_2010.jpg" alt=""> -->
-            <div id="game_elements">
-                <div id="plank_container" class="trash_items_movement">
-                    <img id="plank_sprite" class="click_trash_item" src="images/plank_edit02.png" alt="">
-                </div>
-                <div id="bug_container" class="trash_items_movement">
-                    <img id="bug_sprite" class="click_trash_item" src="images/Dor_beetle_watercolour.png" alt="">
-                </div>
-            </div>
-            <div id="game_foreground">
-                <!-- <img id="trash_pile" src="images/Trash_Pile_Edit.png" alt=""> -->
-            </div>
-            <div id="game_ui">
-                <div id="timer"></div>
-                <div id="score"></div>
-            </div>
+      <div id="game">
+        <div id="game_background"></div>
+        <!-- <img src="images/A_dump_in_Boa_Vista,_Cape_Verde,_December_2010.jpg" alt=""> -->
+        <div id="game_elements">
+          <div id="plank_container" class="trash_items_movement">
+            <img
+              id="plank_sprite"
+              class="click_trash_item"
+              src="images/plank_edit02.png"
+              alt=""
+            />
+          </div>
+          <div id="bug_container" class="trash_items_movement">
+            <img
+              id="bug_sprite"
+              class="click_trash_item"
+              src="images/Dor_beetle_watercolour.png"
+              alt=""
+            />
+          </div>
         </div>
-        <div id="start" hidden></div>
-        <div id="game_over" hidden></div>
-        <div id="level_complete" hidden></div>
+        <div id="game_foreground">
+          <img id="trash_pile" src="images/Trash_Pile_Edit.png" alt="" />
+        </div>
+        <div id="game_ui">
+          <div id="timer"></div>
+          <div id="score"></div>
+        </div>
+      </div>
+      <div id="start" hidden></div>
+      <div id="game_over" hidden></div>
+      <div id="level_complete" hidden></div>
     </div>
-</body>
-<script src="app.js"></script>
+  </body>
+  <script src="app.js"></script>
 </html>
