@@ -41,7 +41,7 @@ img {
   z-index: 1;
   width: 13%;
   top: 85%;
-  left: 64%;
+  left: 60%;
 }
 
 #bug_container {
@@ -49,31 +49,32 @@ img {
   z-index: 1;
   width: 6%;
   top: 90%;
-  left: 55%;
+  left: 50%;
 }
 
 /* ANIMATIONS */
 
 .trash_items_movement {
   animation-name: toss_up_fall_down;
-  animation-duration: 3s;
+  animation-duration: 6s;
   animation-iteration-count: infinite;
-  animation-timing-function: cubic-bezier(0.1, 0.46, 0.45, 0.94);
+  /* animation-timing-function: cubic-bezier(0.1, 0.46, 0.45, 0.94); */
+  animation-fill-mode: forwards;
 }
 
 @keyframes toss_up_fall_down {
   0% {
-    transform: translate(0, 0%);
+    transform: translate(0, 0%) rotate(0deg);
   }
   50% {
-    transform: translate(0, -600%);
+    transform: translate(0, -700%) rotate(-360deg);
   }
   100% {
-    transform: translatex(0, 0%);
+    transform: translatex(0, 0%) rotate(-720deg);
   }
 }
 
-.click_trash_item {
+.click_fadeout {
   animation-name: fade_to_0;
   animation-duration: 3s;
   animation-iteration-count: 1;
@@ -85,8 +86,12 @@ img {
     opacity: 1;
   }
   100% {
-    opacity: 2;
+    opacity: 0.50;
   }
+}
+
+.pause_item {
+    animation-play-state: paused;
 }
 
 /* TO DO: MAKE PAUSE CONTAINER */
@@ -110,6 +115,55 @@ img {
 #game_ui {
   grid-area: 1/1;
   position: relative;
+}
+
+#point1_container {
+  position: absolute;
+  width: 10%;
+  top: 80%;
+  left: 10%;
+}
+
+#point2_container {
+  position: absolute;
+  width: 10%;
+  top: 72%;
+  left: 10%;
+}
+
+#point3_container {
+  position: absolute;  
+  width: 10%;
+  top: 64%;
+  left: 10%;
+}
+
+#point4_container {
+  position: absolute;
+  width: 10%;
+  top: 58%;
+  left: 10%;
+}
+
+#point5_container {
+  position: absolute;  
+  width: 10%;
+  top: 46%;
+  left: 10%;
+}
+
+#point6_container {
+  position: absolute;
+  width: 10%;
+  top: 37%;
+  left: 10%;
+}
+
+#point7_container {
+  position: absolute;
+  width: 10%;
+  top: 30%;
+  left: 10%;
 }
 
 /* UI ELEMENTS */
