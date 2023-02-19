@@ -96,6 +96,23 @@ img {
   animation-play-state: paused;
 }
 
+.ui_timer {
+  animation-name: ui_timer;
+  animation-duration: 10s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes ui_timer {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 2.8%;
+  }
+}
+
 /* TO DO: MAKE PAUSE CONTAINER */
 
 /* FOREGROUNDS */
@@ -117,6 +134,13 @@ img {
 #game_ui {
   grid-area: 1/1;
   position: relative;
+}
+
+#timer {
+  position: absolute;
+  background-color: orangered;
+  width: 100%;
+  top: 3%;
 }
 
 #point1_container {
