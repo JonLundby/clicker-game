@@ -39,15 +39,15 @@ img {
 #plank_container {
   position: absolute;
   z-index: 1;
-  width: 13%;
-  top: 85%;
+  width: 16%;
+  top: 80%;
   left: 60%;
 }
 
 #bug_container {
   position: absolute;
-  z-index: 1;
-  width: 6%;
+  /*z-index: 1;*/
+  width: 8%;
   top: 90%;
   left: 50%;
 }
@@ -56,7 +56,7 @@ img {
 
 .trash_items_movement {
   animation-name: toss_up_fall_down;
-  animation-duration: 4s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(0.64, 0.54, 0.5, 0.58);
   animation-fill-mode: forwards;
@@ -67,7 +67,7 @@ img {
     transform: translate(0, 0%) rotate(0deg);
   }
   50% {
-    transform: translate(0, -700%) rotate(-450deg);
+    transform: translate(0, -650%) rotate(-450deg);
   }
   100% {
     transform: translate(0, 0%) rotate(-810deg);
@@ -98,7 +98,7 @@ img {
 
 .ui_timer {
   animation-name: ui_timer;
-  animation-duration: 10s;
+  animation-duration: 60s;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
