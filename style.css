@@ -92,7 +92,7 @@ img {
   }
 }
 
-.item_pause {
+.pause {
   animation-play-state: paused;
 }
 
