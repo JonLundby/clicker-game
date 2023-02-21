@@ -46,7 +46,7 @@ img {
 
 #bug_container {
   position: absolute;
-  /*z-index: 1;*/
+  z-index: 9;
   width: 8%;
   top: 90%;
   left: 50%;
@@ -120,7 +120,6 @@ img {
   /* background-image: url(images/trash_pile_transparent_16_9.png); */
   grid-area: 1/1;
   position: relative;
-  z-index: 2;
 }
 
 #trash_pile {
@@ -128,6 +127,7 @@ img {
   width: 75%;
   top: 58%;
   left: 25%;
+  z-index: 10;
 }
 
 /* GAME UI */

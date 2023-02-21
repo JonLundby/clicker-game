@@ -1,17 +1,19 @@
+"use strict";
+
 window.addEventListener("load", start);
 
 function start() {
-  console.log("start function called");
+  console.log("start function called...");
   document
     .querySelector("#bug_container")
-    .addEventListener("click", itemRemove);
+    .addEventListener("click", bugRemove);
 }
 
-function itemRemove() {
-  console.log("an item was clicked and removed");
+function bugRemove() {
+  console.log("bug clicked...");
   document
-    .querySelector("bug_container")
-    .removeEventListener("click", itemRemove);
+    .querySelector("#bug_container")
+    .removeEventListener("click", bugRemove);
   document.querySelector("#bug_container").classList.add("pause");
   document.querySelector("#bug_sprite").classList.add("item_fadeout");
 }
