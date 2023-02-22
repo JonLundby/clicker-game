@@ -1,5 +1,8 @@
 "use strict";
 
+//Man starter med 3 point. Hvis man rammer 0 så er det game over, hvis man rammer 7 så er det level complete.
+let points = 3;
+
 window.addEventListener("load", start);
 
 function start() {
@@ -25,7 +28,17 @@ function bugRemove() {
 
   //ending animation
   document.querySelector("#bug_container").addEventListener("animationend", bugInstantiate);
+
+  //adding a point via removePoint function
+  removePoint();
 }
+
+//Remove point function
+function removePoint(){
+  points--;
+  console.log("points = " + points);
+}
+
 
 function bugInstantiate() {
   //log message new bug instatiated
@@ -60,6 +73,15 @@ function plankRemove() {
 
   //ending animation
   document.querySelector("#plank_container").addEventListener("animationend", plankInstantiate);
+
+  //Adding a point via addPoint function
+  addPoint();
+}
+
+// Add point funtion
+function addPoint(){
+  points++;
+  console.log("points = " + points);
 }
 
 function plankInstantiate() {
