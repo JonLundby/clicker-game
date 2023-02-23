@@ -104,6 +104,10 @@ img {
   animation-fill-mode: forwards;
 }
 
+.hidden {
+  display: none;
+}
+
 @keyframes ui_timer {
   0% {
     width: 100%;
@@ -199,9 +203,21 @@ img {
 }
 
 #game_over {
-  width: 10%;
+  position: absolute;
+  width: 100%;
+  top:35%;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+  z-index: 20;
 }
 
 #level_complete {
-  width: 10%;
+  position: absolute;
+  width: 100%;
+  top:35%;
+  text-align: center;
+  font-size: 3em;
+  font-weight: bolder;
+  z-index: 20;
 }

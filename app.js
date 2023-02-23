@@ -1,7 +1,7 @@
 "use strict";
 
 //Man starter med 3 point. Hvis man rammer 0 så er det game over, hvis man rammer 7 så er det level complete.
-let points = 3;
+let points = 6;
 
 window.addEventListener("load", start);
 
@@ -31,14 +31,14 @@ function bugRemove() {
 
   //adding a point via removePoint function
   removePoint();
+  gameOver();
 }
 
 //Remove point function
-function removePoint(){
+function removePoint() {
   points--;
   console.log("points = " + points);
 }
-
 
 function bugInstantiate() {
   //log message new bug instatiated
@@ -76,10 +76,11 @@ function plankRemove() {
 
   //Adding a point via addPoint function
   addPoint();
+  levelComplete();
 }
 
 // Add point funtion
-function addPoint(){
+function addPoint() {
   points++;
   console.log("points = " + points);
 }
@@ -102,4 +103,18 @@ function plankInstantiate() {
 
   //reassigning eventlistener on "click"
   document.querySelector("#plank_container").addEventListener("click", plankRemove);
+}
+
+function gameOver() {
+  if (points < 0) {
+    console.log("game over should be visible...");
+    document.querySelector("#game_over").classList.remove("hidden");
+  }
+}
+
+function levelComplete() {
+  if (points >= 7) {
+    console.log("Level complete should be visible...");
+    document.querySelector("#level_complete").classList.remove("hidden");
+  }
 }
