@@ -192,43 +192,49 @@ img {
 #point1_container {
   position: absolute;
   width: 10%;
-  top: 80%;
+  top: 85%;
   left: 10%;
+  rotate: 10deg;
 }
 
 #point2_container {
   position: absolute;
   width: 10%;
-  top: 72%;
+  top: 78%;
   left: 10%;
+  rotate: -2deg;
 }
 
 #point3_container {
   position: absolute;
   width: 10%;
-  top: 64%;
+  top: 68%;
   left: 10%;
+  rotate: -1deg;
 }
 
 #point4_container {
   position: absolute;
   width: 10%;
-  top: 58%;
+  top: 59%;
   left: 10%;
+  rotate: 12deg;
 }
 
 #point5_container {
   position: absolute;
   width: 10%;
-  top: 46%;
+  top: 50%;
   left: 10%;
+  rotate: -5deg;
 }
 
 #point6_container {
   position: absolute;
   width: 10%;
-  top: 37%;
+  top: 40%;
   left: 10%;
+  rotate: 6deg;
 }
 
 #point7_container {
@@ -236,6 +242,7 @@ img {
   width: 10%;
   top: 30%;
   left: 10%;
+  rotate: -9deg;
 }
 
 /* UI ELEMENTS */

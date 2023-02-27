@@ -116,6 +116,7 @@ function levelComplete() {
   if (points >= 7) {
     console.log("Level complete should be visible...");
     document.querySelector("#level_complete").classList.remove("hidden");
+    document.querySelector("#heaven_container").classList.remove("hidden");
     document.querySelector("#heaven_container").classList.add("fade_in", "blur_pulse")
   }
 }
