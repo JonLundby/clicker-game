@@ -36,20 +36,34 @@ img {
 
 /* GAME ELEMENTS */
 
-#plank_container {
+#plank1_container {
   position: absolute;
-  z-index: 1;
+  z-index: 9;
   width: 16%;
-  top: 80%;
-  left: 60%;
 }
 
-#bug_container {
+#plank2_container {
+  position: absolute;
+  z-index: 9;
+  width: 16%;
+}
+
+#bug1_container {
   position: absolute;
   z-index: 9;
   width: 8%;
-  top: 90%;
-  left: 50%;
+}
+
+#bug2_container {
+  position: absolute;
+  z-index: 9;
+  width: 8%;
+}
+
+#bug3_container {
+  position: absolute;
+  z-index: 9;
+  width: 8%;
 }
 
 #heaven_container {
@@ -159,6 +173,32 @@ img {
   }
 }
 
+/* POSITIONS */
+.position1 {
+  top: 90%;
+  left: 35%;
+}
+
+.position2 {
+  top: 90%;
+  left: 42%;
+}
+
+.position3 {
+  top: 90%;
+  left: 51%;
+}
+
+.position4 {
+  top: 90%;
+  left: 59%;
+}
+
+.position5 {
+  top: 90%;
+  left: 63%;
+}
+
 /* TO DO: MAKE PAUSE CONTAINER */
 
 /* FOREGROUNDS */
@@ -171,7 +211,7 @@ img {
 #trash_pile {
   position: absolute;
   width: 75%;
-  top: 58%;
+  top: 60%;
   left: 25%;
   z-index: 10;
 }
