@@ -8,6 +8,8 @@ window.addEventListener("load", await_play);
 function await_play() {
   console.log("awaiting player start..");
   document.querySelector("#btn_start_game").addEventListener("click", start);
+  document.querySelector("#plank1_container").classList.add("hidden");
+  document.querySelector("#plank2_container").classList.add("hidden");
 }
 
 function start() {
@@ -24,12 +26,12 @@ function start() {
   document.querySelector("#bug3_container").addEventListener("animationiteration", bugRestart);
   document.querySelector("#bug1_container").addEventListener("animationiteration", bugRestart);
   document.querySelector("#bug2_container").addEventListener("animationiteration", bugRestart);
-
-  
 }
 
 function hideStartMenu() {
   document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#plank1_container").classList.remove("hidden");
+  document.querySelector("#plank2_container").classList.remove("hidden");
 }
 
 function startTimer() {
@@ -42,7 +44,6 @@ function startAnimations() {
   document.querySelector("#bug1_container").classList.add("trash_items_movement");
   document.querySelector("#bug2_container").classList.add("trash_items_movement");
   document.querySelector("#bug3_container").classList.add("trash_items_movement");
-
 }
 
 function startPositions() {

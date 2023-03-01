@@ -25,7 +25,7 @@ img {
   background-image: url(images/A_dump_in_Boa_Vista\_Cape_Verde\_December_2010.jpg);
   background-size: cover;
   grid-area: 1/1;
-  opacity: 80%;
+  opacity: 90%;
   z-index: 0;
 }
 
@@ -311,10 +311,11 @@ img {
   width: 100%;
   top: 20%;
   background-color: peru;
+  outline: double gold  5px;
   text-align: center;
   font-size: 3em;
   font-weight: bolder;
-  z-index: 20;
+  z-index: 99;
 }
 
 #game_over {
