@@ -39,30 +39,35 @@ img {
 #plank1_container {
   position: absolute;
   z-index: 9;
-  width: 16%;
+  top: 90%;
+  width: 14%;
 }
 
 #plank2_container {
   position: absolute;
   z-index: 9;
-  width: 16%;
+  top: 94%;
+  width: 14%;
 }
 
 #bug1_container {
   position: absolute;
   z-index: 9;
+  top: 108%;
   width: 8%;
 }
 
 #bug2_container {
   position: absolute;
   z-index: 9;
+  top: 102%;
   width: 8%;
 }
 
 #bug3_container {
   position: absolute;
   z-index: 9;
+  top: 110%;
   width: 8%;
 }
 
@@ -111,6 +116,21 @@ img {
   100% {
     transform: scale(0);
     opacity: 0.5;
+  }
+}
+
+.point_opacity{
+  animation-name: point_opacity;
+}
+
+/* points animation */
+
+@keyframes point_opacity {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
   }
 }
 
@@ -198,8 +218,6 @@ img {
   top: 90%;
   left: 63%;
 }
-
-/* TO DO: MAKE PAUSE CONTAINER */
 
 /* FOREGROUNDS */
 #game_foreground {
@@ -291,7 +309,8 @@ img {
   grid: 1/1;
   position: absolute;
   width: 100%;
-  top: 35%;
+  top: 20%;
+  background-color: peru;
   text-align: center;
   font-size: 3em;
   font-weight: bolder;

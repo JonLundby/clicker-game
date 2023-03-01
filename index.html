@@ -40,7 +40,7 @@
         </div>
         <div id="game_ui">
           <div id="timer">
-            <div id="timer" class="ui_timer">TIME</div>
+            <div id="timer">TIME</div>
           </div>
           <div id="score">
             <img id="point1_container" src="images/plank_edit02.png" alt="" />
@@ -53,10 +53,23 @@
           </div>
         </div>
       </div>
-      <div id="start" class="hidden"></div>
+      <div id="start">
+        <h3>Ladder to heaven(7)</h3>
+        <div>Salvage 7 planks to win</div>
+        <button id="btn_start_game">Play!</button>
+      </div>
       <div id="game_over" class="hidden">G A M E _ O V E R !</div>
       <div id="level_complete" class="hidden">L E V E L _ C O M P L E T E !</div>
     </div>
+
+    <!-- audio elements below -->
+    <audio id="plank_Click_audio" src="audio/464848__eyenorth__cuppling-piezo.wav"></audio>
+    <audio id="bug_Click_audio" src="audio/464848__eyenorth__cuppling-piezo.wav"></audio>
+    <audio id="win_audio" src="audio/464848__eyenorth__cuppling-piezo.wav"></audio>
+    <audio id="loose_audio" src="audio/464848__eyenorth__cuppling-piezo.wav"></audio>
+    <audio id="background_audio" src="audio/398159__inspectorj__ambience-london-street-a.wav"></audio>    
+
+
     <script src="app.js"></script>
   </body>
 </html>

@@ -3,11 +3,18 @@
 //Man starter med 3 point. Hvis man rammer 0 så er det game over, hvis man rammer 7 så er det level complete.
 let points = 5;
 
-window.addEventListener("load", start);
+window.addEventListener("load", await_play);
+
+function await_play() {
+  console.log("awaiting player start..");
+  document.querySelector("#btn_start_game").addEventListener("click", start);
+}
 
 function start() {
   console.log("start function called...");
 
+  hideStartMenu();
+  startTimer();
   startAnimations();
   startPositions();
   registerClick();
@@ -17,6 +24,16 @@ function start() {
   document.querySelector("#bug3_container").addEventListener("animationiteration", bugRestart);
   document.querySelector("#bug1_container").addEventListener("animationiteration", bugRestart);
   document.querySelector("#bug2_container").addEventListener("animationiteration", bugRestart);
+
+  
+}
+
+function hideStartMenu() {
+  document.querySelector("#start").classList.add("hidden");
+}
+
+function startTimer() {
+  document.querySelector("#timer").classList.add("ui_timer");
 }
 
 function startAnimations() {
@@ -25,6 +42,7 @@ function startAnimations() {
   document.querySelector("#bug1_container").classList.add("trash_items_movement");
   document.querySelector("#bug2_container").classList.add("trash_items_movement");
   document.querySelector("#bug3_container").classList.add("trash_items_movement");
+
 }
 
 function startPositions() {
@@ -60,6 +78,12 @@ function plankClicked() {
   //ending animation
   plank.addEventListener("animationend", plankRemove);
 
+  //set audio play time to 0
+  document.querySelector("#plank_Click_audio").currentTime = 0;
+
+  //play audio
+  document.querySelector("#plank_Click_audio").play();
+
   //Adding a point via addPoint function
   addPoint();
   levelComplete();
@@ -69,6 +93,7 @@ function plankClicked() {
 function addPoint() {
   points++;
   console.log("points = " + points);
+  // TO DO: add point animation
 }
 
 function plankRemove() {
@@ -123,6 +148,12 @@ function bugClicked() {
   //ending animation
   bug.addEventListener("animationend", bugRemove);
 
+  //set audio play time to 0
+  document.querySelector("#bug_Click_audio").currentTime = 0;
+
+  //play audio
+  document.querySelector("#bug_Click_audio").play();
+
   //adding a point via removePoint function
   removePoint();
   gameOver();
@@ -132,6 +163,7 @@ function bugClicked() {
 function removePoint() {
   points--;
   console.log("points = " + points);
+  // TO DO: add point animation
 }
 
 function bugRemove() {
@@ -173,6 +205,7 @@ function gameOver() {
   if (points < 0) {
     console.log("game over should be visible...");
     document.querySelector("#game_over").classList.remove("hidden");
+    document.querySelector("#loose_audio").play();
   }
 }
 
@@ -182,5 +215,6 @@ function levelComplete() {
     document.querySelector("#level_complete").classList.remove("hidden");
     document.querySelector("#heaven_container").classList.remove("hidden");
     document.querySelector("#heaven_container").classList.add("fade_in", "blur_pulse");
+    document.querySelector("#win_audio").play();
   }
 }
