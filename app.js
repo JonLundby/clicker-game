@@ -89,16 +89,16 @@ function plankClicked() {
   document.querySelector("#plank_Click_audio").play();
 
   //Adding a point and checking if game has been won
-  levelComplete();
   addPoint();
+  levelComplete();
 }
 
 // Add point funtion
 function addPoint() {
-  if (points > 0) {
-      document.querySelector("#point" + points + "_container").classList.remove("point_drain");  
-  }
   points++;
+  if (points > 0) {
+    document.querySelector("#point" + points + "_container").classList.remove("point_drain");
+  }
   document.querySelector("#point" + points + "_container").classList.add("point_fill");
   console.log("points = " + points);
 }
@@ -135,7 +135,7 @@ function plankRestart() {
 
   let pos = Math.floor(Math.random() * 5) + 1;
   plank.classList.add("position" + pos);
-  console.log("plank repositioned at position" + pos);
+  //console.log("plank repositioned at position" + pos);
 }
 
 function bugClicked() {
@@ -162,13 +162,12 @@ function bugClicked() {
   document.querySelector("#bug_Click_audio").play();
 
   //adding a point and checking if game is lost
-  gameOver();
   removePoint();
+  gameOver();
 }
 
 //Remove point function
 function removePoint() {
-  document.querySelector("#point" + points + "_container").classList.remove("point_fill");
   document.querySelector("#point" + points + "_container").classList.add("point_drain");
   points--;
   console.log("points = " + points);
@@ -206,7 +205,7 @@ function bugRestart() {
 
   let pos = Math.floor(Math.random() * 5) + 1;
   bug.classList.add("position" + pos);
-  console.log("bug repositioned at position" + pos);
+  //console.log("bug repositioned at position" + pos);
 }
 
 function levelComplete() {
@@ -238,6 +237,14 @@ function restartGame() {
   document.querySelector("#heaven_container").classList.add("hidden");
   document.querySelector("#heaven_container").classList.remove("fade_in", "blur_pulse");
   points = 0;
+
+  //resetting plank points animations
+  for (let i = 7; i > 0; i--) {
+    document.querySelector("#point" + i + "_container").classList.remove("point_drain");
+    document.querySelector("#point" + i + "_container").classList.remove("point_fill");
+    console.log("ladder plank point " + i + " fill/drain removed");
+  }
+
   start();
 }
 
@@ -253,6 +260,9 @@ function stopGame() {
   document.querySelector("#bug1_container").removeEventListener("click", bugClicked);
   document.querySelector("#bug2_container").removeEventListener("click", bugClicked);
   document.querySelector("#bug3_container").removeEventListener("click", bugClicked);
+
+  //reset points
+  points = 0;
 
   //reset timer
   document.querySelector("#timer").classList.remove("ui_timer");
