@@ -1,7 +1,7 @@
 "use strict";
 
 //Man starter med 3 point. Hvis man rammer 0 så er det game over, hvis man rammer 7 så er det level complete.
-let points = 5;
+let points = 0;
 
 window.addEventListener("load", await_play);
 
@@ -14,6 +14,9 @@ function await_play() {
 
 function start() {
   console.log("start function called...");
+
+  // TO DO: start background audio
+  document.querySelector("#background_audio").play();
 
   hideStartMenu();
   startTimer();
@@ -85,16 +88,19 @@ function plankClicked() {
   //play audio
   document.querySelector("#plank_Click_audio").play();
 
-  //Adding a point via addPoint function
-  addPoint();
+  //Adding a point and checking if game has been won
   levelComplete();
+  addPoint();
 }
 
 // Add point funtion
 function addPoint() {
+  if (points > 0) {
+      document.querySelector("#point" + points + "_container").classList.remove("point_drain");  
+  }
   points++;
+  document.querySelector("#point" + points + "_container").classList.add("point_fill");
   console.log("points = " + points);
-  // TO DO: add point animation
 }
 
 function plankRemove() {
@@ -120,7 +126,7 @@ function plankRemove() {
 
 function plankRestart() {
   let plank = this;
-  console.log("plankRestart called");
+  //console.log("plankRestart called");
   plank.classList.remove("trash_items_movement");
   plank.offsetWidth;
   plank.classList.add("trash_items_movement");
@@ -155,16 +161,17 @@ function bugClicked() {
   //play audio
   document.querySelector("#bug_Click_audio").play();
 
-  //adding a point via removePoint function
-  removePoint();
+  //adding a point and checking if game is lost
   gameOver();
+  removePoint();
 }
 
 //Remove point function
 function removePoint() {
+  document.querySelector("#point" + points + "_container").classList.remove("point_fill");
+  document.querySelector("#point" + points + "_container").classList.add("point_drain");
   points--;
   console.log("points = " + points);
-  // TO DO: add point animation
 }
 
 function bugRemove() {
@@ -190,7 +197,7 @@ function bugRemove() {
 
 function bugRestart() {
   let bug = this;
-  console.log("bugRestart was called");
+  //console.log("bugRestart was called");
   bug.classList.remove("trash_items_movement");
   bug.offsetWidth;
   bug.classList.add("trash_items_movement");
@@ -202,20 +209,54 @@ function bugRestart() {
   console.log("bug repositioned at position" + pos);
 }
 
-function gameOver() {
-  if (points < 0) {
-    console.log("game over should be visible...");
-    document.querySelector("#game_over").classList.remove("hidden");
-    document.querySelector("#loose_audio").play();
-  }
-}
-
 function levelComplete() {
   if (points >= 7) {
     console.log("Level complete should be visible...");
+    stopGame();
     document.querySelector("#level_complete").classList.remove("hidden");
     document.querySelector("#heaven_container").classList.remove("hidden");
     document.querySelector("#heaven_container").classList.add("fade_in", "blur_pulse");
-    document.querySelector("#win_audio").play();
+    //document.querySelector("#win_audio").play();
+    document.querySelector("#btn_play_again2").addEventListener("click", restartGame);
   }
+}
+
+function gameOver() {
+  if (points < 0) {
+    console.log("game over should be visible...");
+    stopGame();
+    document.querySelector("#game_over").classList.remove("hidden");
+    //document.querySelector("#loose_audio").play();
+    document.querySelector("#btn_play_again1").addEventListener("click", restartGame);
+  }
+}
+
+function restartGame() {
+  console.log("restarting...");
+  document.querySelector("#level_complete").classList.add("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#heaven_container").classList.add("hidden");
+  document.querySelector("#heaven_container").classList.remove("fade_in", "blur_pulse");
+  points = 0;
+  start();
+}
+
+function stopGame() {
+  document.querySelector("#plank1_container").classList.remove("trash_items_movement");
+  document.querySelector("#plank2_container").classList.remove("trash_items_movement");
+  document.querySelector("#bug1_container").classList.remove("trash_items_movement");
+  document.querySelector("#bug2_container").classList.remove("trash_items_movement");
+  document.querySelector("#bug3_container").classList.remove("trash_items_movement");
+
+  document.querySelector("#plank1_container").removeEventListener("click", plankClicked);
+  document.querySelector("#plank2_container").removeEventListener("click", plankClicked);
+  document.querySelector("#bug1_container").removeEventListener("click", bugClicked);
+  document.querySelector("#bug2_container").removeEventListener("click", bugClicked);
+  document.querySelector("#bug3_container").removeEventListener("click", bugClicked);
+
+  //reset timer
+  document.querySelector("#timer").classList.remove("ui_timer");
+
+  document.querySelector("#background_audio").pause();
+  document.querySelector("#background_audio").currentTime = 0;
 }

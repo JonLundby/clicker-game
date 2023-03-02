@@ -119,18 +119,49 @@ img {
   }
 }
 
-.point_opacity{
-  animation-name: point_opacity;
+.point_fill{
+  animation-name: point_fill;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 /* points animation */
 
-@keyframes point_opacity {
+@keyframes point_fill {
   0%{
-    opacity: 0;
+    opacity: 0.2;
+    scale: 1;
+  }
+  50% {
+    scale: 1.5;
   }
   100%{
     opacity: 1;
+    scale: 1;
+  }
+}
+
+.point_drain{
+  animation-name: point_drain;
+  animation-duration: 500ms;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+/* points animation */
+
+@keyframes point_drain {
+  0%{
+    opacity: 1;
+    scale: 1;
+  }
+  50% {
+    scale: 1.5;
+  }
+  100%{
+    opacity: 0.2;
+    scale: 1;
   }
 }
 
@@ -245,6 +276,12 @@ img {
   background-color: orangered;
   width: 100%;
   top: 3%;
+  /* outline: solid black 2px; */
+}
+
+#timerOutline {
+  position: abs;
+  outline: solid black 2px;
 }
 
 #point1_container {
@@ -253,6 +290,7 @@ img {
   top: 85%;
   left: 10%;
   rotate: 10deg;
+  opacity: 0.4;
 }
 
 #point2_container {
@@ -261,6 +299,7 @@ img {
   top: 78%;
   left: 10%;
   rotate: -2deg;
+  opacity: 0.4;
 }
 
 #point3_container {
@@ -269,6 +308,7 @@ img {
   top: 68%;
   left: 10%;
   rotate: -1deg;
+  opacity: 0.4;
 }
 
 #point4_container {
@@ -277,6 +317,7 @@ img {
   top: 59%;
   left: 10%;
   rotate: 12deg;
+  opacity: 0.4;
 }
 
 #point5_container {
@@ -285,6 +326,7 @@ img {
   top: 50%;
   left: 10%;
   rotate: -5deg;
+  opacity: 0.4;
 }
 
 #point6_container {
@@ -293,6 +335,7 @@ img {
   top: 40%;
   left: 10%;
   rotate: 6deg;
+  opacity: 0.4;
 }
 
 #point7_container {
@@ -301,15 +344,17 @@ img {
   top: 30%;
   left: 10%;
   rotate: -9deg;
+  opacity: 0.4;
 }
 
 /* UI ELEMENTS */
 
 #start {
-  grid: 1/1;
+  grid-area: 1/1;
   position: absolute;
-  width: 100%;
+  width: 50%;
   top: 20%;
+  justify-self: center;
   background-color: peru;
   outline: double gold  5px;
   text-align: center;
@@ -319,23 +364,29 @@ img {
 }
 
 #game_over {
-  grid: 1/1;
+  grid-area: 1/1;
   position: absolute;
-  width: 100%;
-  top: 35%;
+  width: 50%;
+  top: 20%;
+  justify-self: center;
+  background-color: peru;
+  outline: double gold  5px;
   text-align: center;
   font-size: 3em;
   font-weight: bolder;
-  z-index: 20;
+  z-index: 99;
 }
 
 #level_complete {
-  grid: 1/1;
+  grid-area: 1/1;
   position: absolute;
-  width: 100%;
-  top: 35%;
+  width: 50%;
+  top: 20%;
+  justify-self: center;
+  background-color: peru;
+  outline: double gold  5px;
   text-align: center;
   font-size: 3em;
   font-weight: bolder;
-  z-index: 20;
+  z-index: 99;
 }
