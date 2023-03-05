@@ -2,6 +2,7 @@
 
 //Man starter med 3 point. Hvis man rammer 0 så er det game over, hvis man rammer 7 så er det level complete.
 let points = 0;
+let gameRunning = false;
 
 window.addEventListener("load", await_play);
 
@@ -15,7 +16,9 @@ function await_play() {
 function start() {
   console.log("start function called...");
 
-  // TO DO: start background audio
+  gameRunning = true;
+
+  document.querySelector("#background_audio").loop = true;
   document.querySelector("#background_audio").play();
 
   hideStartMenu();
@@ -38,7 +41,11 @@ function hideStartMenu() {
 }
 
 function startTimer() {
-  document.querySelector("#timer").classList.add("ui_timer");
+  document.querySelector("#timer_fill").classList.remove("ui_timer");
+  document.querySelector("#timer_fill").offsetWidth;
+  document.querySelector("#timer_fill").classList.add("ui_timer");
+  document.querySelector("#timer_fill").style.animationPlayState = "running";
+  document.querySelector("#timer_fill").addEventListener("animationend", timeOver);
 }
 
 function startAnimations() {
@@ -67,7 +74,7 @@ function registerClick() {
 
 function plankClicked() {
   //log checking if plank was clicked
-  console.log("plank clicked...");
+  //console.log("plank clicked...");
 
   //cleaner code
   let plank = this;
@@ -105,7 +112,7 @@ function addPoint() {
 
 function plankRemove() {
   //log message new plank instatiated
-  console.log("new plank is being instantiated...");
+  //console.log("new plank is being instantiated...");
 
   //cleaner code
   let plank = this; //document.querySelector("#plank1_container")
@@ -140,7 +147,7 @@ function plankRestart() {
 
 function bugClicked() {
   //log checking if bug was clicked
-  console.log("bug clicked...");
+  //console.log("bug clicked...");
 
   //cleaner code
   let bug = this; //document.querySelector("#bug1_container")
@@ -168,14 +175,16 @@ function bugClicked() {
 
 //Remove point function
 function removePoint() {
-  document.querySelector("#point" + points + "_container").classList.add("point_drain");
+  if (points > 0) {
+    document.querySelector("#point" + points + "_container").classList.add("point_drain");
+  }
   points--;
   console.log("points = " + points);
 }
 
 function bugRemove() {
   //log message new bug instatiated
-  console.log("new bug is being instantiated...");
+  //console.log("new bug is being instantiated...");
 
   //cleaner code
   let bug = this; //document.querySelector("#bug1_container")
@@ -221,13 +230,18 @@ function levelComplete() {
 }
 
 function gameOver() {
-  if (points < 0) {
+  if (points < 0 || gameRunning === false) {
     console.log("game over should be visible...");
     stopGame();
     document.querySelector("#game_over").classList.remove("hidden");
-    //document.querySelector("#loose_audio").play();
     document.querySelector("#btn_play_again1").addEventListener("click", restartGame);
   }
+}
+
+function timeOver() {
+  console.log("time is over and game should end??");
+  gameRunning = false;
+  gameOver();
 }
 
 function restartGame() {
@@ -242,13 +256,14 @@ function restartGame() {
   for (let i = 7; i > 0; i--) {
     document.querySelector("#point" + i + "_container").classList.remove("point_drain");
     document.querySelector("#point" + i + "_container").classList.remove("point_fill");
-    console.log("ladder plank point " + i + " fill/drain removed");
+    //console.log("ladder plank point " + i + " fill/drain removed");
   }
 
   start();
 }
 
 function stopGame() {
+  console.log("game stopped...");
   document.querySelector("#plank1_container").classList.remove("trash_items_movement");
   document.querySelector("#plank2_container").classList.remove("trash_items_movement");
   document.querySelector("#bug1_container").classList.remove("trash_items_movement");
@@ -264,9 +279,13 @@ function stopGame() {
   //reset points
   points = 0;
 
-  //reset timer
-  document.querySelector("#timer").classList.remove("ui_timer");
+  //pause timer
+  timerPauseReset();
 
   document.querySelector("#background_audio").pause();
   document.querySelector("#background_audio").currentTime = 0;
+}
+
+function timerPauseReset() {
+  document.querySelector("#timer_fill").style.animationPlayState = "paused";
 }

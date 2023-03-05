@@ -119,7 +119,7 @@ img {
   }
 }
 
-.point_fill{
+.point_fill {
   animation-name: point_fill;
   animation-duration: 500ms;
   animation-iteration-count: 1;
@@ -129,20 +129,20 @@ img {
 /* points animation */
 
 @keyframes point_fill {
-  0%{
+  0% {
     opacity: 0.2;
     scale: 1;
   }
   50% {
     scale: 1.5;
   }
-  100%{
+  100% {
     opacity: 1;
     scale: 1;
   }
 }
 
-.point_drain{
+.point_drain {
   animation-name: point_drain;
   animation-duration: 500ms;
   animation-iteration-count: 1;
@@ -152,14 +152,14 @@ img {
 /* points animation */
 
 @keyframes point_drain {
-  0%{
+  0% {
     opacity: 1;
     scale: 1;
   }
   50% {
     scale: 1.5;
   }
-  100%{
+  100% {
     opacity: 0.2;
     scale: 1;
   }
@@ -193,34 +193,37 @@ img {
 
 @keyframes blur_pulse {
   0% {
-    transform: scale(1); filter: blur(0.05rem);
+    transform: scale(1);
+    filter: blur(0.05rem);
   }
   50% {
-    transform: scale(1.3); filter: blur(0.01rem);
+    transform: scale(1.3);
+    filter: blur(0.01rem);
   }
   100% {
-    transform: scale(1); filter: blur(0.05rem);
+    transform: scale(1);
+    filter: blur(0.05rem);
   }
-}
-
-.ui_timer {
-  animation-name: ui_timer;
-  animation-duration: 60s;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
 }
 
 .hidden {
   display: none;
 }
 
+.ui_timer {
+  animation-name: ui_timer;
+  animation-duration: 30000ms;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
 @keyframes ui_timer {
   0% {
-    width: 100%;
+    height: 100%;
   }
   100% {
-    width: 2.8%;
+    height: 0%;
   }
 }
 
@@ -271,17 +274,21 @@ img {
   position: relative;
 }
 
-#timer {
+#timer_outline {
   position: absolute;
-  background-color: orangered;
-  width: 100%;
-  top: 3%;
-  /* outline: solid black 2px; */
+  outline: solid black 2px;  
+  width: 3.4%;
+  height: 75%;
+  top: 6%;
+  left: 95.7%;
 }
 
-#timerOutline {
-  position: abs;
-  outline: solid black 2px;
+#timer_fill {
+  position: relative;
+  background-color: green;
+  width: 100%;
+  height: 100%;
+  /* outline: solid black 2px; */
 }
 
 #point1_container {
@@ -356,7 +363,7 @@ img {
   top: 20%;
   justify-self: center;
   background-color: peru;
-  outline: double gold  5px;
+  outline: double gold 5px;
   text-align: center;
   font-size: 3em;
   font-weight: bolder;
@@ -370,7 +377,7 @@ img {
   top: 20%;
   justify-self: center;
   background-color: peru;
-  outline: double gold  5px;
+  outline: double gold 5px;
   text-align: center;
   font-size: 3em;
   font-weight: bolder;
@@ -384,7 +391,7 @@ img {
   top: 20%;
   justify-self: center;
   background-color: peru;
-  outline: double gold  5px;
+  outline: double gold 5px;
   text-align: center;
   font-size: 3em;
   font-weight: bolder;
