@@ -19,8 +19,11 @@ function start() {
   gameRunning = true;
 
   document.querySelector("#background_audio").loop = true;
+  document.querySelector("#background_audio").volume = 0.1;
   document.querySelector("#background_audio").play();
 
+  document.querySelector("#game_elements").classList.remove("hidden");
+  
   hideStartMenu();
   startTimer();
   startAnimations();
@@ -50,6 +53,12 @@ function startTimer() {
 }
 
 function startAnimations() {
+  document.querySelector("#plank1_container").classList.remove("hidden");
+  document.querySelector("#plank2_container").classList.remove("hidden");
+  document.querySelector("#bug1_container").classList.remove("hidden");
+  document.querySelector("#bug2_container").classList.remove("hidden");
+  document.querySelector("#bug3_container").classList.remove("hidden");
+
   document.querySelector("#plank1_container").classList.add("trash_items_movement");
   document.querySelector("#plank2_container").classList.add("trash_items_movement");
   document.querySelector("#bug1_container").classList.add("trash_items_movement");
@@ -221,11 +230,11 @@ function bugRestart() {
 function levelComplete() {
   if (points >= 7) {
     console.log("Level complete should be visible...");
+    document.querySelector("#win_audio").play();
     stopGame();
     document.querySelector("#level_complete").classList.remove("hidden");
     document.querySelector("#heaven_container").classList.remove("hidden");
     document.querySelector("#heaven_container").classList.add("fade_in", "blur_pulse");
-    //document.querySelector("#win_audio").play();
     document.querySelector("#btn_play_again2").addEventListener("click", restartGame);
   }
 }
@@ -233,6 +242,7 @@ function levelComplete() {
 function gameOver() {
   if (points < 0 || gameRunning === false) {
     console.log("game over should be visible...");
+    document.querySelector("#loose_audio").play();
     stopGame();
     document.querySelector("#game_over").classList.remove("hidden");
     document.querySelector("#btn_play_again1").addEventListener("click", restartGame);
@@ -277,14 +287,28 @@ function stopGame() {
   document.querySelector("#bug2_container").removeEventListener("click", bugClicked);
   document.querySelector("#bug3_container").removeEventListener("click", bugClicked);
 
+  document.querySelector("#plank1_container").classList.add("hidden");
+  document.querySelector("#plank2_container").classList.add("hidden");
+  document.querySelector("#bug1_container").classList.add("hidden");
+  document.querySelector("#bug2_container").classList.add("hidden");
+  document.querySelector("#bug3_container").classList.add("hidden");
+
   //reset points
   points = 0;
 
   //pause timer
   timerPause();
 
+  //resetting audio
   document.querySelector("#background_audio").pause();
   document.querySelector("#background_audio").currentTime = 0;
+/*
+  document.querySelector("#win_audio").pause();
+  document.querySelector("#win_audio").currentTime = 0;
+
+  document.querySelector("#loose_audio").pause();
+  document.querySelector("#loose_audio").currentTime = 0;
+*/
 }
 
 function timerPause() {
