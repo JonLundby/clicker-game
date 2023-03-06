@@ -4,9 +4,9 @@
 let points = 0;
 let gameRunning = false;
 
-window.addEventListener("load", await_play);
+window.addEventListener("load", awaitPlay);
 
-function await_play() {
+function awaitPlay() {
   console.log("awaiting player start..");
   document.querySelector("#btn_start_game").addEventListener("click", start);
   document.querySelector("#plank1_container").classList.add("hidden");
@@ -35,7 +35,8 @@ function start() {
 }
 
 function hideStartMenu() {
-  document.querySelector("#start").classList.add("hidden");
+  document.querySelector("#start").classList.add("hide_menu_animation");
+  //document.querySelector("#start").classList.add("hidden");
   document.querySelector("#plank1_container").classList.remove("hidden");
   document.querySelector("#plank2_container").classList.remove("hidden");
 }
@@ -87,7 +88,7 @@ function plankClicked() {
   plank.querySelector("img").classList.add("item_fadeout");
 
   //ending animation
-  plank.addEventListener("animationend", plankRemove);
+  plank.addEventListener("animationend", plankRemoved);
 
   //set audio play time to 0
   document.querySelector("#plank_Click_audio").currentTime = 0;
@@ -110,7 +111,7 @@ function addPoint() {
   console.log("points = " + points);
 }
 
-function plankRemove() {
+function plankRemoved() {
   //log message new plank instatiated
   //console.log("new plank is being instantiated...");
 
@@ -118,7 +119,7 @@ function plankRemove() {
   let plank = this; //document.querySelector("#plank1_container")
 
   //removing the animationend
-  plank.removeEventListener("animationend", plankRemove);
+  plank.removeEventListener("animationend", plankRemoved);
 
   //removing bugClicked css class animations pause and fadeout
   plank.classList.remove("pause");
@@ -160,7 +161,7 @@ function bugClicked() {
   bug.querySelector("img").classList.add("item_fadeout");
 
   //ending animation
-  bug.addEventListener("animationend", bugRemove);
+  bug.addEventListener("animationend", bugRemoved);
 
   //set audio play time to 0
   document.querySelector("#bug_Click_audio").currentTime = 0;
@@ -182,7 +183,7 @@ function removePoint() {
   console.log("points = " + points);
 }
 
-function bugRemove() {
+function bugRemoved() {
   //log message new bug instatiated
   //console.log("new bug is being instantiated...");
 
@@ -190,7 +191,7 @@ function bugRemove() {
   let bug = this; //document.querySelector("#bug1_container")
 
   //removing the animationend
-  bug.removeEventListener("animationend", bugRemove);
+  bug.removeEventListener("animationend", bugRemoved);
 
   //removing bugClicked css class animations pause and fadeout
   bug.classList.remove("pause");
@@ -280,12 +281,12 @@ function stopGame() {
   points = 0;
 
   //pause timer
-  timerPauseReset();
+  timerPause();
 
   document.querySelector("#background_audio").pause();
   document.querySelector("#background_audio").currentTime = 0;
 }
 
-function timerPauseReset() {
+function timerPause() {
   document.querySelector("#timer_fill").style.animationPlayState = "paused";
 }
