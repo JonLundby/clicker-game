@@ -23,7 +23,7 @@ function start() {
   document.querySelector("#background_audio").play();
 
   document.querySelector("#game_elements").classList.remove("hidden");
-  
+
   hideStartMenu();
   startTimer();
   startAnimations();
@@ -229,7 +229,7 @@ function bugRestart() {
 
 function levelComplete() {
   if (points >= 7) {
-    console.log("Level complete should be visible...");
+    //console.log("Level complete should be visible...");
     document.querySelector("#win_audio").play();
     stopGame();
     document.querySelector("#level_complete").classList.remove("hidden");
@@ -241,7 +241,7 @@ function levelComplete() {
 
 function gameOver() {
   if (points < 0 || gameRunning === false) {
-    console.log("game over should be visible...");
+    //console.log("game over should be visible...");
     document.querySelector("#loose_audio").play();
     stopGame();
     document.querySelector("#game_over").classList.remove("hidden");
@@ -250,13 +250,13 @@ function gameOver() {
 }
 
 function timeOver() {
-  console.log("time is over and game should end??");
+  //console.log("time is over and game should end??");
   gameRunning = false;
   gameOver();
 }
 
 function restartGame() {
-  console.log("restarting...");
+  //console.log("restarting...");
   document.querySelector("#level_complete").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#heaven_container").classList.add("hidden");
@@ -275,18 +275,21 @@ function restartGame() {
 
 function stopGame() {
   console.log("game stopped...");
+  //remove item movement
   document.querySelector("#plank1_container").classList.remove("trash_items_movement");
   document.querySelector("#plank2_container").classList.remove("trash_items_movement");
   document.querySelector("#bug1_container").classList.remove("trash_items_movement");
   document.querySelector("#bug2_container").classList.remove("trash_items_movement");
   document.querySelector("#bug3_container").classList.remove("trash_items_movement");
 
+  //remove item click-event
   document.querySelector("#plank1_container").removeEventListener("click", plankClicked);
   document.querySelector("#plank2_container").removeEventListener("click", plankClicked);
   document.querySelector("#bug1_container").removeEventListener("click", bugClicked);
   document.querySelector("#bug2_container").removeEventListener("click", bugClicked);
   document.querySelector("#bug3_container").removeEventListener("click", bugClicked);
 
+  //hide items
   document.querySelector("#plank1_container").classList.add("hidden");
   document.querySelector("#plank2_container").classList.add("hidden");
   document.querySelector("#bug1_container").classList.add("hidden");
@@ -302,7 +305,7 @@ function stopGame() {
   //resetting audio
   document.querySelector("#background_audio").pause();
   document.querySelector("#background_audio").currentTime = 0;
-/*
+  /*
   document.querySelector("#win_audio").pause();
   document.querySelector("#win_audio").currentTime = 0;
 

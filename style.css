@@ -252,7 +252,8 @@ button:hover {
 
 @keyframes ui_timer {
   0% {
-    height: 100%;
+    clip-path: inset(0% 0 0 0);
+    /* height: 100%; */
     background-color: green;
   }
   80% {
@@ -262,7 +263,8 @@ button:hover {
     background-color: red;
   }
   100% {
-    height: 0%;
+    clip-path: inset(100% 0 0 0);
+    /* height: 0%; */
     background-color: red;
   }
 }
@@ -328,7 +330,6 @@ button:hover {
   background-color: green;
   width: 100%;
   height: 100%;
-  /* outline: solid black 2px; */
 }
 
 #point1_container {
@@ -506,7 +507,7 @@ button:hover {
 #level_complete_box {
   grid-area: 1/1;
   top: 20%;
-  padding: 10;
+  padding: 10vw;
   background-color: peru;
   outline: double gold 5px;
   text-align: center;
