@@ -115,7 +115,7 @@ button:hover {
 
 .trash_items_movement {
   animation-name: toss_up_fall_down;
-  animation-duration: 4500ms;
+  animation-duration: 5400ms;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(0.64, 0.54, 0.5, 0.58);
   animation-fill-mode: forwards;
@@ -412,6 +412,7 @@ button:hover {
 #startbox {
   grid-area: 1/1;
   top: 20%;
+  padding: 5vw;
   background-color: peru;
   outline: double gold 5px;
   text-align: center;
@@ -482,7 +483,7 @@ button:hover {
 #game_over_box {
   grid-area: 1/1;
   top: 20%;
-  padding: 10;
+  padding: 10vw;
   background-color: peru;
   outline: double gold 5px;
   text-align: center;
@@ -494,6 +495,7 @@ button:hover {
   position: relative;
   justify-content: center;
   align-items: center;
+  padding: 5vw;
   z-index: 99;
 }
 
