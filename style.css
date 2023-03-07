@@ -115,7 +115,7 @@ button:hover {
 
 .trash_items_movement {
   animation-name: toss_up_fall_down;
-  animation-duration: 10s;
+  animation-duration: 6500ms;
   animation-iteration-count: infinite;
   animation-timing-function: cubic-bezier(0.64, 0.54, 0.5, 0.58);
   animation-fill-mode: forwards;
